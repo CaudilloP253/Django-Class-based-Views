@@ -9,7 +9,9 @@ from products.views import (
     ProductIDRedirectView, 
     ProtectedProductDetailView, 
     ProductRedirectView,
-    ProtectedProductCreateView
+    ProtectedProductCreateView,
+    ProtectedProductUpdateView, 
+    ProtectedProductDeleteView, 
 )
 
 urlpatterns= [
@@ -26,4 +28,7 @@ urlpatterns= [
     path("p/<slug:slug>/", ProductRedirectView.as_view()),
    # path("my-products/<slug:slug>/", ProtectedProductDetailView.as_view()),
     path("my-products/create/", ProtectedProductCreateView.as_view()),
+
+    path ("my-products/<slug:slug>/", ProtectedProductUpdateView.as_view()),
+    path ("my-products/<slug:slug>/delete/", ProtectedProductDeleteView.as_view()),    
 ]
